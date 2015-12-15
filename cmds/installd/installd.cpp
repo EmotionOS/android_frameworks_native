@@ -171,6 +171,11 @@ static int do_aapt_with_common(char **arg, char reply[REPLY_MAX] __unused)
     return aapt(arg[0], arg[1], arg[2], atoi(arg[3]), atoi(arg[4]), atoi(arg[5]), arg[6], arg[7]);
 }
 
+static int do_rm_idmap(char **arg, char reply[REPLY_MAX] __unused)
+{
+    return rm_idmap(arg[0]);
+}
+
 static int do_restorecon_data(char **arg, char reply[REPLY_MAX] __attribute__((unused)))
 {
     return restorecon_data(parse_null(arg[0]), arg[1], arg[2], atoi(arg[3]));
@@ -228,7 +233,8 @@ struct cmdinfo cmds[] = {
     { "restorecondata",       4, do_restorecon_data },
     { "createoatdir",         2, do_create_oat_dir },
     { "rmpackagedir",         1, do_rm_package_dir },
-    { "linkfile",             3, do_link_file }
+    { "linkfile",             3, do_link_file },
+    { "rmidmap",              1, do_rm_idmap },
 };
 
 static int readx(int s, void *_buf, int count)
