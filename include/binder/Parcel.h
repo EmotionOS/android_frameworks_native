@@ -172,6 +172,7 @@ public:
 
     const char*         readCString() const;
     String8             readString8() const;
+    status_t            readString8(String8* pArg) const;
     String16            readString16() const;
     const char16_t*     readString16Inplace(size_t* outLen) const;
     sp<IBinder>         readStrongBinder() const;
