@@ -95,15 +95,11 @@ public:
     };
 
     struct Geometry {
-        float x;
-        float y;
         uint32_t w;
         uint32_t h;
-        bool isPositionPending;
         Rect crop;
         inline bool operator ==(const Geometry& rhs) const {
-            return (w == rhs.w && h == rhs.h && crop == rhs.crop && x == rhs.x && y == rhs.y
-                && isPositionPending == rhs.isPositionPending);
+            return (w == rhs.w && h == rhs.h && crop == rhs.crop);
         }
         inline bool operator !=(const Geometry& rhs) const {
             return !operator ==(rhs);
